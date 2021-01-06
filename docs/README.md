@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /assets/img/es6.png
-heroText: 1
-tagline: 22
+heroImage: /es6.jpg
+heroText: 不积跬步无以至千里
+tagline: go
 actionText: 快速开始 →
-actionLink: /noteBooks/
+actionLink: /noteBooks/Promise.md
 features:
   - title: 简洁至上
     details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
