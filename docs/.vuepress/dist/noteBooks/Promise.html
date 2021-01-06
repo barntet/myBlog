@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从零手写 Promise 完整版 | 笔记</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="barnett的blog">
+    
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.e32ca8cc.js" as="script"><link rel="preload" href="/assets/js/2.2f30755f.js" as="script"><link rel="preload" href="/assets/js/12.47801861.js" as="script"><link rel="prefetch" href="/assets/js/10.0b286e2c.js"><link rel="prefetch" href="/assets/js/11.425410bc.js"><link rel="prefetch" href="/assets/js/13.f9ca42db.js"><link rel="prefetch" href="/assets/js/3.6391a0d0.js"><link rel="prefetch" href="/assets/js/4.b3d7061b.js"><link rel="prefetch" href="/assets/js/5.fe69d77d.js"><link rel="prefetch" href="/assets/js/6.73c063ed.js"><link rel="prefetch" href="/assets/js/7.b4e343ac.js"><link rel="prefetch" href="/assets/js/8.8ea5e59c.js"><link rel="prefetch" href="/assets/js/9.6e7f0869.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/noteBooks/" class="sidebar-heading clickable router-link-active open"><span>Js</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/noteBooks/Promise.html" aria-current="page" class="active sidebar-link">从零手写 Promise 完整版</a></li><li><a href="/noteBooks/Async.html" class="sidebar-link">前端开发必不可少，什么是异步编程</a></li><li><a href="/noteBooks/Numbers.html" class="sidebar-link">为什么 JavaScript 会精度丢失</a></li><li><a href="/noteBooks/Arr.html" class="sidebar-link">js 常见的对象与数组之间的转换你都知道吗？</a></li><li><a href="/noteBooks/Electron.html" class="sidebar-link">Electron</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="从零手写-promise-完整版"><a href="#从零手写-promise-完整版" class="header-anchor">#</a> 从零手写 Promise 完整版</h1> <p>随着前端技术的不断发展，用户对界面的要求也在不断提高，现在的前端不再是之前的 html+css, 而是 html+css+js，但是想学好 js 首先要知道 js 的核心在于异步，说到异步大部分人第一时间会想到 Promise。</p> <p>那么接下来我们就来学习一下 Promise 是如何实现的吧。</p> <p>首先我们回顾一下 Promise 的基本使用</p> <div class="language- extra-class"><pre class="language-text"><code>const p = new Promise((resolve,reject)=&gt;{
+    resolve('返回成功的值')
+    reject('返回失败的值')
+})
+
+p.then(value=&gt;{
+    console.log(value) // 返回成功的值
+})
+</code></pre></div><ol><li>new Promise 构造函数内的回调数是同步执行的</li> <li>then 的回调函数，是异步执行的</li> <li>调用 resolve/reject 后，状态已定，状态不能再改变</li> <li>.then 每次返回的都是新的 Promise</li> <li>Promise 可以嵌套</li></ol> <p>接着我们从零开始来实现一下 Promise</p> <p>先来实现明确一下基本的结构</p> <div class="language- extra-class"><pre class="language-text"><code>(function(window){
+    // 定义MyPromise构造函数
+    function MyPromise(executor){
+
+        function resolve(value){
+
+        }
+        function reject(reason){
+
+        }
+        executor(resolve,reject)
+    }
+    // MyPromise原型链上存在then方法
+    MyPromise.prototype.then = function(onResolved,onRejected){
+
+    }
+    //MyPromise原型链上存在catch方法
+    MyPromise.prototype.catch = function(onRejected){
+
+    }
+
+    //MyPromise实例对象上存在resolve方法
+    MyPromise.resolve = function(value){
+
+    }
+
+    //MyPromise实例对象上存在reject方法
+    MyPromise.reject = function(reason){
+
+    }
+
+    //MyPromise实例对象上存在all方法
+    MyPromise.all = function(promises){
+
+    }
+
+    //MyPromise实例对象上存在race方法
+    MyPromise.race = function(promises){
+
+    }
+
+    window.MyPromise = MyPromise;
+})(window)
+</code></pre></div><p>明确来了基本的结构后，接下里我们来看看 MyPromise 构造函数内需要做什么</p> <p>1.定义 Promise 的初始状态、初始值、存放待执行异步函数的数组</p> <div class="language- extra-class"><pre class="language-text"><code>(function(window){
+    const PENDDING = 'pendding';
+    const FULFILLED = 'fulfilled';
+    const REJECTED = 'rejected';
+    function MyPromise(executor){
+        const self = this;
+        self.status = PENDDING; //初始状态
+        self.data = undefined; // 初始值
+        self.callbacks = []; // 待执行异步回调函数的数组
+
+        function resolve(value){
+        }
+        function reject(reason){
+        }
+        executor(resolve,reject)
+    }
+    window.MyPromise = MyPromise;
+})(window)
+</code></pre></div><ol start="2"><li>根据 Promise 状态的不同，进行修，赋值，以及立即执行异步回调</li></ol> <div class="language- extra-class"><pre class="language-text"><code>(function (window) {
+    const PENDDING = 'pendding';
+    const FULFILLED = 'fulfilled';
+    const REJECTED = 'rejected';
+    // 定义MyPromise
+    function MyPromise(executor) {
+        const self = this;
+        self.status = PENDDING;
+        self.data = undefined;
+        self.callbacks = [];
+
+        function resolve(value) {
+            self.status = FULFILLED;
+            self.data = value;
+            // 立即执行异步回调函数
+            setTimeout(() =&gt; {
+                self.callbacks.forEach(callbacksObj =&gt; {
+                    callbacksObj.onResolved(value);
+                })
+            })
+        }
+
+        function reject(reason) {
+            self.status = REJECTED;
+            self.data = reason;
+            setTimeout(() =&gt; {
+                self.callbacks.forEach(callbacksObj =&gt; {
+                    callbacksObj.onRejected(reason);
+                })
+            })
+        }
+        executor(resolve, reject)
+    }
+    window.MyPromise = MyPromise;
+</code></pre></div><ol start="3"><li>别忘了 Promise 的状态一旦改变就不能再修改了，所以在 resolve/reject 函数内需要加一个判断</li></ol> <div class="language- extra-class"><pre class="language-text"><code>(function (window) {
+    const PENDDING = 'pendding';
+    const FULFILLED = 'fulfilled';
+    const REJECTED = 'rejected';
+    // 定义MyPromise
+    function MyPromise(executor) {
+        const self = this;
+        self.status = PENDDING;
+        self.data = undefined;
+        self.callbacks = [];
+
+        function resolve(value) {
+            if (self.status !== PENDDING) return;
+            self.status = FULFILLED;
+            self.data = value;
+            // 立即执行异步回调函数
+            setTimeout(() =&gt; {
+                self.callbacks.forEach(callbacksObj =&gt; {
+                    callbacksObj.onResolved(value);
+                })
+            })
+        }
+
+        function reject(reason) {
+            if (self.status !== PENDDING) return;
+            self.status = REJECTED;
+            self.data = reason;
+            setTimeout(() =&gt; {
+                self.callbacks.forEach(callbacksObj =&gt; {
+                    callbacksObj.onRejected(reason);
+                })
+            })
+        }
+        executor(resolve, reject)
+    }
+    window.MyPromise = MyPromise;
+</code></pre></div><ol start="4"><li>Promise 原型链上的 then 方法，可以接收两个参数(且是回调函数)，成功/失败，并且每次返回的都是一个新的 Promise</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// MyPromise原型链上存在then方法
+MyPromise.prototype.then = function (onResolved, onRejected) {
+    const self = this;
+    return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+        // 首先判断当前状态
+        if (self.status === FULFILLED) {
+            /*
+                1、返回的Promise的结果是由onResolved/onrejected决定的
+                2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+                3、返回的不是Promise对象 (该值就是Promise的返回结果)
+                4、抛出异常 异常的值为返回的结果
+            */
+            setTimeout(() =&gt; {
+                try {
+                    const result = onResolved(self.data);
+                    if (reject instanceof MyPromise) {
+                        result.then(value =&gt; {
+                            resolve(value);
+                        }, reason =&gt; {
+                            reject(reason);
+                        })
+                    } else {
+                        resolve(result);
+                    }
+
+                } catch (error) {
+                    reject(error);
+                }
+            });
+
+        } else if (self.status === REJECTED) {
+            setTimeout(() =&gt; {
+                try {
+                    const result = onRejected(self.data);
+                    if (reject instanceof MyPromise) {
+                        result.then(value =&gt; {
+                            resolve(value);
+                        }, reason =&gt; {
+                            reject(reason);
+                        })
+                    } else {
+                        resolve(result);
+                    }
+
+                } catch (error) {
+                    reject(error);
+                }
+            });
+
+        } else if (self.status === PENDDING) {
+            self.callbacks.push({
+                onResolved() {
+                    try {
+                        const result = onResolved(self.data);
+                        if (reject instanceof MyPromise) {
+                            result.then(value =&gt; {
+                                resolve(value);
+                            }, reason =&gt; {
+                                reject(reason);
+                            })
+                        } else {
+                            resolve(result);
+                        }
+
+                    } catch (error) {
+                        reject(error);
+                    }
+                },
+                onRejected() {
+                    try {
+                        const result = onRejected(self.data);
+                        if (reject instanceof MyPromise) {
+                            result.then(value =&gt; {
+                                resolve(value);
+                            }, reason =&gt; {
+                                reject(reason);
+                            })
+                        } else {
+                            resolve(result);
+                        }
+
+                    } catch (error) {
+                        reject(error);
+                    }
+                }
+            })
+        }
+    })
+}
+</code></pre></div><p>好的停一下，一步一步讲解</p> <ol><li><p>.then 每次都返回一个新的 Promise，所以在.then 方法里是</p> <blockquote><p>return new MyPromise((resolve,reject)){}</p></blockquote></li> <li><p>每一种状态都存在返回值，并且都能是一下三种情况</p> <ol><li>返回的是 Promise 对象</li> <li>返回的不是 Promise 对象</li> <li>抛出异常</li></ol></li> <li><p>FULFILLED/REJECTED 两种状态需要立即执行异步函数</p></li> <li><p>PENDDING 为什么没有立即执行异步函数，因为当状态为 PENDDING 时就执行 then，会先往待执行回调函数的数组（callbacks）内存放这个回调，紧接着在回到 Promise 的执行其中执行 resolve/reject,而上面也写过了，执行 resolve/reject 会去待执行回调函数的数组内遍历并赋值。</p></li></ol> <p><img src="https://imgkr2.cn-bj.ufileos.com/33d9b1f2-21f6-4a23-9424-8d866ac45bfb.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=5xRZQ%252FQZ8wmPycBQeiaFCxwNjtk%253D&amp;Expires=1597917354" alt=""></p> <p>好的继续，并且对上面重复的优化一下。</p> <div class="language- extra-class"><pre class="language-text"><code>// MyPromise原型链上存在then方法
+    MyPromise.prototype.then = function (onResolved, onRejected) {
+        const self = this;
+        return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+            function handle(callback) {
+                /*
+                    1、返回的Promise的结果是由onResolved/onrejected决定的
+                    2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+                    3、返回的不是Promise对象 (该值就是Promise的返回结果)
+                    4、抛出异常 异常的值为返回的结果
+                */
+                try {
+                    const result = callback(self.data);
+                    if (reject instanceof MyPromise) {
+                        result.then(value =&gt; {
+                            resolve(value);
+                        }, reason =&gt; {
+                            reject(reason);
+                        })
+                    } else {
+                        resolve(result);
+                    }
+
+                } catch (error) {
+                    reject(error);
+                }
+            }
+            // 首先判断当前状态
+            if (self.status === FULFILLED) {
+                setTimeout(() =&gt; {
+                    thandle(onResolved)
+                });
+
+            } else if (self.status === REJECTED) {
+                setTimeout(() =&gt; {
+                    thandle(onRejected)
+                });
+
+            } else if (self.status === PENDDING) {
+                self.callbacks.push({
+                    onResolved() {
+                        handle(onResolved)
+                    },
+                    onRejected() {
+                        handle(onRejected)
+                    }
+                })
+            }
+        })
+    }
+</code></pre></div><ol start="5"><li>防止不穿成功或者失败的回调函数，给成功和失败都给一个默认回调函数</li></ol> <div class="language- extra-class"><pre class="language-text"><code>MyPromise.prototype.then = function (onResolved, onRejected) {
+        const self = this;
+        // 定义默认回调
+        onResolved = typeof onResolved === &quot;function&quot; ? onResolved : value =&gt; value;
+        onRejected = typeof onRejected === &quot;function&quot; ? onRejected : reason =&gt; {throw reason};
+        return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+            function handle(callback) {
+                /*
+                    1、返回的Promise的结果是由onResolved/onrejected决定的
+                    2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+                    3、返回的不是Promise对象 (该值就是Promise的返回结果)
+                    4、抛出异常 异常的值为返回的结果
+                */
+                try {
+                    const result = callback(self.data);
+                    if (reject instanceof MyPromise) {
+                        result.then(value =&gt; {
+                            resolve(value);
+                        }, reason =&gt; {
+                            reject(reason);
+                        })
+                    } else {
+                        resolve(result);
+                    }
+
+                } catch (error) {
+                    reject(error);
+                }
+            }
+            // 首先判断当前状态
+            if (self.status === FULFILLED) {
+                setTimeout(() =&gt; {
+                    thandle(onResolved)
+                });
+
+            } else if (self.status === REJECTED) {
+                setTimeout(() =&gt; {
+                    thandle(onRejected)
+                });
+
+            } else if (self.status === PENDDING) {
+                self.callbacks.push({
+                    onResolved() {
+                        handle(onResolved)
+                    },
+                    onRejected() {
+                        handle(onRejected)
+                    }
+                })
+            }
+        })
+    }
+</code></pre></div><ol start="6"><li>接着我们看看 catch，其实就是
+<blockquote><p>Promise.prototype.then(undefined,rejected)</p></blockquote></li></ol> <p>或者</p> <blockquote><p>Promise.prototype.then(null,rejected)</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>//MyPromise原型链上存在catch方法
+  MyPromise.prototype.catch = function (onRejected) {
+    return this.then(null, onRejected);
+  }
+</code></pre></div><p>7、接下来实现一下 Promise.resolve/Promise.reject</p> <div class="language- extra-class"><pre class="language-text"><code>/MyPromise实例对象上存在resolve方法
+MyPromise.resolve = function (value) {
+    if (value instanceof MyPromise) return value;
+    return new MyPromise(resolve =&gt; resolve(value))             // 返回一个resolved状态的Promise对象
+}
+
+//MyPromise实例对象上存在reject方法
+MyPromise.reject = function (reason) {
+    return new MyPromise((resolve,reject) =&gt; reject(reason));  // 返回一个reject状态Promise对象
+}
+</code></pre></div><ol start="8"><li>接下来实现一下 Promise.all/Promise.race</li></ol> <div class="language- extra-class"><pre class="language-text"><code>//MyPromise实例对象上存在all方法
+MyPromise.all = function (promises) {
+    let promisesCount = 0
+    let values = new Array(promises.length);
+    return new MyPromise((resolve,reject)=&gt;{
+        promises.forEach((promise,index)=&gt;{
+            promise.then(value =&gt; {
+                promisesCount++;
+                values[index] = value;
+                if (promisesCount === promises.length){
+                    resolve(values);
+                }
+            },reason =&gt; {
+                reject(reason);
+            })
+        })
+    })
+
+}
+</code></pre></div><p>好的,我们来看看 Promise.all 实现的思路</p> <ol><li>Promise.all 传入的是一个数组</li> <li>Promise.all 返回的是一个数组</li> <li>Promise.all 传入的数组中，每个 Promise 对象必须都正确才能返回正确的结果数组</li> <li>Promise.all 传入的数组中任意一个对象返回错的结果，都会返回错误的结果</li></ol> <p>好的，其实我们还少一个步骤就是 Promise.all 传入的数组的参数可以不是 Promise 的实例, 所以数组参数如果不是 Promise 实例，先调用 Promise.resolve</p> <div class="language- extra-class"><pre class="language-text"><code>//MyPromise实例对象上存在all方法
+MyPromise.all = function (promises) {
+    let promisesCount = 0
+    let values = new Array(promises.length);
+    return new MyPromise((resolve, reject) =&gt; {
+      promises.forEach((promise, index) =&gt; {
+        MyPromise.resolve(promise).then(value =&gt; {
+          promisesCount++;
+          values[index] = value;
+          if (promisesCount === promises.length) {
+            resolve(values);
+          }
+        }, reason =&gt; {
+          reject(reason);
+        })
+      })
+    })
+}
+</code></pre></div><p>Promise.race 实现</p> <div class="language- extra-class"><pre class="language-text"><code>//MyPromise实例对象上存在race方法
+  MyPromise.race = function (promises) {
+    return new MyPromise((resolve, reject) =&gt; {
+      promises.forEach(promise =&gt; {
+        MyPromise.resolve(promise).then(value =&gt; {
+          resolve(value);
+        }, reason =&gt; {
+          reject(reason)
+        })
+      })
+    })
+  }
+</code></pre></div><p>好的,解释一下，</p> <ol><li>Promise.race 传入的也是一个数组</li> <li>传入的 Promise 执行内容相同的情况下，Promise.race 返回的结果为数组中的第一个值</li> <li>若传入的 Promise 执行内容不一致，有先后区分，则结果为执行的最快的一个</li></ol> <p>至此从零手写一个 Promise 完成了，其中包括</p> <blockquote><p>Promise.prototype.then</p></blockquote> <blockquote><p>Promise.prototype.catch</p></blockquote> <blockquote><p>Promise.resolve</p></blockquote> <blockquote><p>Promise.reject</p></blockquote> <blockquote><p>Promise.all</p></blockquote> <blockquote><p>Promise.race</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>
+(function (window) {
+
+  const PENDDING = 'pendding';
+  const FULFILLED = 'fulfilled';
+  const REJECTED = 'rejected';
+  // 定义MyPromise
+  function MyPromise(executor) {
+    const self = this;
+    self.status = PENDDING;
+    self.data = undefined;
+    self.callbacks = [];
+
+    function resolve(value) {
+      if (self.status !== PENDDING) return;
+      self.status = FULFILLED;
+      self.data = value;
+      // 立即执行异步回调函数
+      setTimeout(() =&gt; {
+        self.callbacks.forEach(callbacksObj =&gt; {
+          callbacksObj.onResolved(value);
+        })
+      })
+    }
+
+    function reject(reason) {
+      if (self.status !== PENDDING) return;
+      self.status = REJECTED;
+      self.data = reason;
+      setTimeout(() =&gt; {
+        self.callbacks.forEach(callbacksObj =&gt; {
+          callbacksObj.onRejected(reason);
+        })
+      })
+    }
+    try{
+      executor(resolve, reject)
+    }catch(error){
+      reject(error)
+    }
+
+  }
+  // MyPromise原型链上存在then方法
+  MyPromise.prototype.then = function (onResolved, onRejected) {
+    const self = this;
+    // 定义默认回调
+    onResolved = typeof onResolved === &quot;function&quot; ? onResolved : value =&gt; value;
+    onRejected = typeof onRejected === &quot;function&quot; ? onRejected : reason =&gt; {
+      throw reason
+    };
+    return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+      function handle(callback) {
+        /*
+            1、返回的Promise的结果是由onResolved/onrejected决定的
+            2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+            3、返回的不是Promise对象 (该值就是Promise的返回结果)
+            4、抛出异常 异常的值为返回的结果
+        */
+        try {
+          const result = callback(self.data);
+          if (reject instanceof MyPromise) {
+            result.then(value =&gt; {
+              resolve(value);
+            }, reason =&gt; {
+              reject(reason);
+            })
+          } else {
+            resolve(result);
+          }
+
+        } catch (error) {
+          reject(error);
+        }
+      }
+      // 首先判断当前状态
+      if (self.status === FULFILLED) {
+        setTimeout(() =&gt; {
+          handle(onResolved)
+        });
+
+      } else if (self.status === REJECTED) {
+        setTimeout(() =&gt; {
+          handle(onRejected)
+        });
+
+      } else if (self.status === PENDDING) {
+        self.callbacks.push({
+          onResolved() {
+            handle(onResolved)
+          },
+          onRejected() {
+            handle(onRejected)
+          }
+        })
+      }
+    })
+  }
+  //MyPromise原型链上存在catch方法
+  MyPromise.prototype.catch = function (onRejected) {
+    return this.then(null, onRejected);
+  }
+
+  //MyPromise实例对象上存在resolve方法
+  MyPromise.resolve = function (value) {
+    if (value instanceof MyPromise) return value;
+    return new MyPromise(resolve =&gt; resolve(value)) // 返回一个resolved状态的Promise对象
+  }
+
+  //MyPromise实例对象上存在reject方法
+  MyPromise.reject = function (reason) {
+    return new MyPromise((resolve, reject) =&gt; reject(reason)); // 返回一个reject状态Promise对象
+  }
+
+  //MyPromise实例对象上存在all方法
+  MyPromise.all = function (promises) {
+    let promisesCount = 0
+    let values = new Array(promises.length);
+    return new MyPromise((resolve, reject) =&gt; {
+      promises.forEach((promise, index) =&gt; {
+        MyPromise.resolve(promise).then(value =&gt; {
+          promisesCount++;
+          values[index] = value;
+          if (promisesCount === promises.length) {
+            resolve(values);
+          }
+        }, reason =&gt; {
+          reject(reason);
+        })
+      })
+    })
+  }
+
+  //MyPromise实例对象上存在race方法
+  MyPromise.race = function (promises) {
+    return new MyPromise((resolve, reject) =&gt; {
+      promises.forEach(promise =&gt; {
+        MyPromise.resolve(promise).then(value =&gt; {
+          resolve(value);
+        }, reason =&gt; {
+          reject(reason)
+        })
+      })
+    })
+  }
+
+  window.MyPromise = MyPromise;
+})(window)
+</code></pre></div><p>最后我们用类(class)的方式实现一下</p> <div class="language- extra-class"><pre class="language-text"><code>(function (window) {
+    const PENDDING = 'pendding';
+    const FULFILLED = 'fulfilled';
+    const REJECTED = 'rejected';
+    // 定义MyPromise
+    class MyPromise {
+        constructor(executor) {
+            const self = this;
+            self.status = PENDDING;
+            self.data = undefined;
+            self.callbacks = [];
+
+            function resolve(value) {
+                if (self.status !== PENDDING) return;
+                self.status = FULFILLED;
+                self.data = value;
+                // 立即执行异步回调函数
+                setTimeout(() =&gt; {
+                    self.callbacks.forEach(callbacksObj =&gt; {
+                        callbacksObj.onResolved(value);
+                    })
+                })
+            }
+
+            function reject(reason) {
+                if (self.status !== PENDDING) return;
+                self.status = REJECTED;
+                self.data = reason;
+                setTimeout(() =&gt; {
+                    self.callbacks.forEach(callbacksObj =&gt; {
+                        callbacksObj.onRejected(reason);
+                    })
+                })
+            }
+            executor(resolve, reject)
+        }
+        // MyPromise原型链上存在then方法
+        then(onResolved, onRejected) {
+            const self = this;
+            // 定义默认回调
+            onResolved = typeof onResolved === &quot;function&quot; ? onResolved : value =&gt; value;
+            onRejected = typeof onRejected === &quot;function&quot; ? onRejected : reason =&gt; {
+                throw reason
+            };
+            return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+                function handle(callback) {
+                    /*
+                        1、返回的Promise的结果是由onResolved/onrejected决定的
+                        2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+                        3、返回的不是Promise对象 (该值就是Promise的返回结果)
+                        4、抛出异常 异常的值为返回的结果
+                    */
+                    try {
+                        const result = callback(self.data);
+                        if (reject instanceof MyPromise) {
+                            result.then(value =&gt; {
+                                resolve(value);
+                            }, reason =&gt; {
+                                reject(reason);
+                            })
+                        } else {
+                            resolve(result);
+                        }
+
+                    } catch (error) {
+                        reject(error);
+                    }
+                }
+                // 首先判断当前状态
+                if (self.status === FULFILLED) {
+                    setTimeout(() =&gt; {
+                        handle(onResolved)
+                    });
+
+                } else if (self.status === REJECTED) {
+                    setTimeout(() =&gt; {
+                        handle(onRejected)
+                    });
+
+                } else if (self.status === PENDDING) {
+                    self.callbacks.push({
+                        onResolved() {
+                            handle(onResolved)
+                        },
+                        onRejected() {
+                            handle(onRejected)
+                        }
+                    })
+                }
+            })
+        }
+        //MyPromise原型链上存在catch方法
+        catch (onRejected) {
+            return this.then(null, onRejected);
+        }
+        //MyPromise实例对象上存在resolve方法
+        static resolve(value) {
+            if (value instanceof MyPromise) return value;
+            return new MyPromise(resolve =&gt; resolve(value)) // 返回一个resolved状态的Promise对象
+        }
+        //MyPromise实例对象上存在reject方法
+        static reject(reason) {
+            return new MyPromise((resolve, reject) =&gt; reject(reason)); // 返回一个reject状态Promise对象
+        }
+        //MyPromise实例对象上存在all方法
+        static all(promises) {
+            let promisesCount = 0
+            let values = new Array(promises.length);
+            return new MyPromise((resolve, reject) =&gt; {
+                promises.forEach((promise, index) =&gt; {
+                    MyPromise.resolve(promise).then(value =&gt; {
+                        promisesCount++;
+                        values[index] = value;
+                        if (promisesCount === promises.length) {
+                            resolve(values);
+                        }
+                    }, reason =&gt; {
+                        reject(reason);
+                    })
+                })
+            })
+        }
+        //MyPromise实例对象上存在race方法
+        static race(promises) {
+            return new MyPromise((resolve, reject) =&gt; {
+                promises.forEach(promise =&gt; {
+                    MyPromise.resolve(promise).then(value =&gt; {
+                        resolve(value);
+                    }, reason =&gt; {
+                        reject(reason)
+                    })
+                })
+            })
+        }
+    }
+    window.MyPromise = MyPromise;
+})(window)
+</code></pre></div><p>从零手写 Promise 说难也不难，但是还是花了不少时间的，希望能够帮助到像我一样想学好 js，想学好 Promise 的朋友，一起加油吧。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/noteBooks/Async.html">
+        前端开发必不可少，什么是异步编程
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e32ca8cc.js" defer></script><script src="/assets/js/2.2f30755f.js" defer></script><script src="/assets/js/12.47801861.js" defer></script>
+  </body>
+</html>

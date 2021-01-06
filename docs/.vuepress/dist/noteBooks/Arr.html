@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js 常见的对象与数组之间的转换你都知道吗？ | 笔记</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="barnett的blog">
+    
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.e32ca8cc.js" as="script"><link rel="preload" href="/assets/js/2.2f30755f.js" as="script"><link rel="preload" href="/assets/js/8.8ea5e59c.js" as="script"><link rel="prefetch" href="/assets/js/10.0b286e2c.js"><link rel="prefetch" href="/assets/js/11.425410bc.js"><link rel="prefetch" href="/assets/js/12.47801861.js"><link rel="prefetch" href="/assets/js/13.f9ca42db.js"><link rel="prefetch" href="/assets/js/3.6391a0d0.js"><link rel="prefetch" href="/assets/js/4.b3d7061b.js"><link rel="prefetch" href="/assets/js/5.fe69d77d.js"><link rel="prefetch" href="/assets/js/6.73c063ed.js"><link rel="prefetch" href="/assets/js/7.b4e343ac.js"><link rel="prefetch" href="/assets/js/9.6e7f0869.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/noteBooks/" class="sidebar-heading clickable router-link-active open"><span>Js</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/noteBooks/Promise.html" class="sidebar-link">从零手写 Promise 完整版</a></li><li><a href="/noteBooks/Async.html" class="sidebar-link">前端开发必不可少，什么是异步编程</a></li><li><a href="/noteBooks/Numbers.html" class="sidebar-link">为什么 JavaScript 会精度丢失</a></li><li><a href="/noteBooks/Arr.html" aria-current="page" class="active sidebar-link">js 常见的对象与数组之间的转换你都知道吗？</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/noteBooks/Electron.html" class="sidebar-link">Electron</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js-常见的对象与数组之间的转换你都知道吗"><a href="#js-常见的对象与数组之间的转换你都知道吗" class="header-anchor">#</a> js 常见的对象与数组之间的转换你都知道吗？</h1> <p>最近公司项目重构，看了看之前的代码发现很多因为数据结构导致的问题，可是没办法啊，打工个人。所以总结了一些平时开发中对象与数组常用的方法与它们之间相互转换的方法。</p> <h1 id="数组转对象"><a href="#数组转对象" class="header-anchor">#</a> 数组转对象</h1> <h3 id="展开运算符"><a href="#展开运算符" class="header-anchor">#</a> 展开运算符 (...)</h3> <p>这是一个简单快速的方法</p> <div class="language- extra-class"><pre class="language-text"><code>const arr = ['one','two','three'];
+const obj = {...arr};
+console.log(obj);    // { 0: 'one', 1: 'tow', 2: 'three' }
+
+</code></pre></div><h3 id="objcet-assign-target-sources"><a href="#objcet-assign-target-sources" class="header-anchor">#</a> Objcet.assign(target, ...sources)</h3> <p>将所有可枚举属性的值从一个或多个源对象分配到目标对象</p> <p>参数： target：目标对象、...sources：源对象</p> <p>返回值：目标对象</p> <div class="language- extra-class"><pre class="language-text"><code>const arr = ['one','two','three'];
+const obj = Object.assign({}, arr);
+console.log(obj);       // { 0: 'one', 1: 'tow', 2: 'three' }
+</code></pre></div><h3 id="object-fromentries-iterable"><a href="#object-fromentries-iterable" class="header-anchor">#</a> Object.fromEntries(iterable)</h3> <p>把键值对转换为一个对象。</p> <p>参数：类似 Array、Map</p> <p>返回值：由该迭代对象条目提供对应属性的新对象</p> <p>当我们遇到如下的结构时我们可以很轻松的将这个数组转换为对象</p> <div class="language- extra-class"><pre class="language-text"><code>const arr = [ ['a', 1], ['b', 2], ['c', 3] ];
+const obj = Object.fromEntries(arr);
+console.log(obj);    // { a:1 , b: 2, c: 3 }
+
+</code></pre></div><h3 id="foreach"><a href="#foreach" class="header-anchor">#</a> forEach</h3> <div class="language- extra-class"><pre class="language-text"><code>const arr = [1,2,3,4,5];
+let obj = {};
+
+arr.forEach((item,index) =&gt; {
+    obj[index] = item;
+})
+
+console.log(obj);     //{ 0: 1, 1: 2, 2: 3, 3: 4, 4: 5 }
+
+</code></pre></div><h1 id="对象转数组"><a href="#对象转数组" class="header-anchor">#</a> 对象转数组</h1> <h3 id="object-entries-obj"><a href="#object-entries-obj" class="header-anchor">#</a> Object.entries(obj)</h3> <p>把一个键值对转换为数组</p> <p>参数： 可以返回其自身可枚举属性的键值对的对象</p> <p>返回值：返回一个其自身可枚举属性的键值对数组</p> <p>当我们遇到如下的结构时我们可以很轻松的将这个对象转换为数组</p> <div class="language- extra-class"><pre class="language-text"><code>const obj = { a:1 , b: 2, c: 3 };
+const arr = Object.entries(obj);
+console.log(arr);   // [ ['a', 1], ['b', 2], ['c', 3] ]
+
+</code></pre></div><h3 id="object-keys-obj"><a href="#object-keys-obj" class="header-anchor">#</a> Object.keys(obj)</h3> <p>由给定的对象自身可枚举的属性组成的数组</p> <p>参数：对象</p> <p>返回值：给定对象的属性组成的字符串数组</p> <p>通常会配合一些数组的方法使用，如下</p> <div class="language- extra-class"><pre class="language-text"><code>const obj = { a:1 , b: 2, c: 3 };
+const arr = Object.keys(obj).map(item =&gt; obj[item]);
+console.log(arr);  // [1, 2, 3];
+
+也可以得到上面那样的结果
+
+const arr = Object.keys(obj).map(item =&gt; [item, lobj[item]]);
+console.log(arr);  // [ ['a', 1], ['b', 2], ['c', 3] ]
+
+</code></pre></div><h3 id="object-values-obj"><a href="#object-values-obj" class="header-anchor">#</a> Object.values(obj)</h3> <p>由给定的对象自身可枚举的属性值组成的数组</p> <p>参数：对象</p> <p>返回值：给定对象的属性值组成的字符串数组</p> <div class="language- extra-class"><pre class="language-text"><code>const obj = { a:1 , b: 2, c: 3 };
+const arr = Object.values(obj);
+console.log(arr);  // [1, 2, 3];
+
+</code></pre></div><h3 id="array-from-array-fn-this"><a href="#array-from-array-fn-this" class="header-anchor">#</a> Array.from(array, fn, this)</h3> <p>从一个类似数组对象或可迭代对象创建一个新的，浅拷贝的数组实例。</p> <p>参数：</p> <div class="language- extra-class"><pre><code>array：要变换成数组的为数组对象或可迭代对象
+
+fn: 指定了该参数，新数组中的每个元素都会执行该回调函数
+
+this: 执行回调函数时的this对象
+</code></pre></div><p>返回值：一个新的数组实例</p> <p>先来说说什么是类似数组：就是含有 length 和索引属性的对象，如下就是一个简单的类似数组对象</p> <div class="language- extra-class"><pre class="language-text"><code>const obj = {
+    0: 'name',
+    1: 'age',
+    2: 'sex',
+    3: 'height'
+    length: 3,
+}
+</code></pre></div><blockquote><p>注意：类似数组对象的<code>length</code>的值，决定了返回数组的长度</p></blockquote> <p>什么是可迭代对象：Array、Set、Map 和字符串都是可迭代对象，更直接的是在控制台上看看当前的对象的原型链上是否有 <code>Symbol</code>的方法 ，看看下面通过生成器创建的可迭代对象</p> <div class="language- extra-class"><pre class="language-text"><code>const obj = {
+    0: 'name',
+    1: 'age',
+    2: 'sex',
+    3: 'height',
+}
+
+function *createIterator(obj){
+    for(let value in obj){
+        yield obj[value];
+    }
+}
+
+let iterator = createIterator(obj);
+
+</code></pre></div><p>好的，我们来试试用 Array.from 创建一个数组吧。</p> <div class="language- extra-class"><pre class="language-text"><code>类似数组对象
+
+const obj = {
+    0: 'name',
+    1: 'age',
+    2: 'sex',
+    3: 'height',
+    length: 3,
+}
+
+const arr = Array.from(obj);
+
+console.log(arr);    //['name', 'age', 'sex' ];
+
+输出3个是因为上面说的length的长度决定了数组的长度
+
+
+可迭代对象
+
+const obj2 = {
+    0: 'name',
+    1: 'age',
+    2: 'sex',
+    3: 'height'
+}
+
+function *createIterator(obj){
+    for(let value in obj){
+        yield obj[value];
+    }
+}
+
+let iterator = createIterator(obj);
+
+const arr2 = Arry.from(iterator);
+
+console.log(arr2);    //['name', 'age', 'sex', 'height' ];
+
+</code></pre></div><p>以上就是常见的一些数组与对象之间转换的方法，有不好的地点就要麻烦大家指出了，既然都看到最后了不如动手试一试这些方法吧。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/noteBooks/Numbers.html" class="prev">
+        为什么 JavaScript 会精度丢失
+      </a></span> <span class="next"><a href="/noteBooks/Electron.html">
+        Electron
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e32ca8cc.js" defer></script><script src="/assets/js/2.2f30755f.js" defer></script><script src="/assets/js/8.8ea5e59c.js" defer></script>
+  </body>
+</html>

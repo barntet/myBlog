@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Electron | 笔记</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="barnett的blog">
+    
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.e32ca8cc.js" as="script"><link rel="preload" href="/assets/js/2.2f30755f.js" as="script"><link rel="preload" href="/assets/js/10.0b286e2c.js" as="script"><link rel="prefetch" href="/assets/js/11.425410bc.js"><link rel="prefetch" href="/assets/js/12.47801861.js"><link rel="prefetch" href="/assets/js/13.f9ca42db.js"><link rel="prefetch" href="/assets/js/3.6391a0d0.js"><link rel="prefetch" href="/assets/js/4.b3d7061b.js"><link rel="prefetch" href="/assets/js/5.fe69d77d.js"><link rel="prefetch" href="/assets/js/6.73c063ed.js"><link rel="prefetch" href="/assets/js/7.b4e343ac.js"><link rel="prefetch" href="/assets/js/8.8ea5e59c.js"><link rel="prefetch" href="/assets/js/9.6e7f0869.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/noteBooks/" class="nav-link router-link-active">
+  笔记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/noteBooks/" class="sidebar-heading clickable router-link-active open"><span>Js</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/noteBooks/Promise.html" class="sidebar-link">从零手写 Promise 完整版</a></li><li><a href="/noteBooks/Async.html" class="sidebar-link">前端开发必不可少，什么是异步编程</a></li><li><a href="/noteBooks/Numbers.html" class="sidebar-link">为什么 JavaScript 会精度丢失</a></li><li><a href="/noteBooks/Arr.html" class="sidebar-link">js 常见的对象与数组之间的转换你都知道吗？</a></li><li><a href="/noteBooks/Electron.html" aria-current="page" class="active sidebar-link">Electron</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#创建第一个-electron-应用" class="sidebar-link">创建第一个 Electron 应用</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#electron-的运行流程" class="sidebar-link">electron 的运行流程</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#试试-node-js-的读取" class="sidebar-link">试试 node.js 的读取</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#remote-模块的使用" class="sidebar-link">remote 模块的使用</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#创建菜单以及基本使用" class="sidebar-link">创建菜单以及基本使用</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#右键菜单" class="sidebar-link">右键菜单</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#通过链接打开浏览器" class="sidebar-link">通过链接打开浏览器</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#嵌入网页和打开子窗口" class="sidebar-link">嵌入网页和打开子窗口</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#window-open-子窗口和父窗口之间的通信" class="sidebar-link">window.open 子窗口和父窗口之间的通信</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#选择文件对话框" class="sidebar-link">选择文件对话框</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#保存对话框的操作" class="sidebar-link">保存对话框的操作</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#消息对话框-制作一个确认对话框" class="sidebar-link">消息对话框（制作一个确认对话框）</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#断网提醒" class="sidebar-link">断网提醒</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#底部通知消息提醒" class="sidebar-link">底部通知消息提醒</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#注册全局快捷键" class="sidebar-link">注册全局快捷键</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#注销快捷键" class="sidebar-link">注销快捷键</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#剪切板事件使用" class="sidebar-link">剪切板事件使用</a></li><li class="sidebar-sub-header"><a href="/noteBooks/Electron.html#打包桌面应用" class="sidebar-link">打包桌面应用</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="electron"><a href="#electron" class="header-anchor">#</a> Electron</h1> <p>随着前端快速的发展，在任何开发领域都有前端的一席之地。那如何使用前端进行桌面端应用的开发呢？Electron 是一个不错的选择。</p> <p>Electron 是什么呢?</p> <p>Electron 就是使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序.</p> <ul><li>Electron 是由 github 开发的开源框架</li> <li>它允许开发者使用 web 技术开发跨平台的桌面应用</li></ul> <p>Electron = Chromium + Node.js + Native API</p> <ul><li>Chromium：提供了强大的 ui 能力，利用强大的 web 生态来开发界面。</li> <li>Node.js：让 Electron 有了底层才做能力，比如读写能力，并且可以使用大量的开源包来完成项目的开发。</li> <li>Native API：让 Electron 有了跨平台和桌面端的原生能力，比如有同意的原生界面、窗口、托盘。</li></ul> <p>今天我们就来看看如何从零开始学习 electron，用前端技术构建的桌面应用程序</p> <h2 id="创建第一个-electron-应用"><a href="#创建第一个-electron-应用" class="header-anchor">#</a> 创建第一个 Electron 应用</h2> <ol><li>新建文件夹(命名记得不要出现中文)，初始化项目</li></ol> <div class="language- extra-class"><pre class="language-text"><code>npm init
+会生成package.json 文件
+文件内容如下
+
+{
+  &quot;name&quot;: &quot;test&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+别急
+npm init 以后会让我们填写一些配置信息，不知道如何填写一路回车即可
+当然也可以执行 npm init -y
+</code></pre></div><ol start="2"><li>安装 electron
+<blockquote><p>npm install --save-dev electron</p></blockquote></li></ol> <p>如果安装的时候遇到什么问题(大部分报错或太慢)可以看看 npm 是否切换了淘宝镜像</p> <blockquote><p>npm config set registry https://registry.npm.taobao.org</p></blockquote> <p>也可以配置一下 electron 镜像</p> <blockquote><p>npm config set ELECTRON_MIRROR http://npm.taobao.org/mirrors/electron/</p></blockquote> <p>我们来测试一下<code>electron</code>是否安装成功</p> <p>安装成功我们能看到 electron 的窗口打开</p> <blockquote><p>命令行内执行 npx electron</p></blockquote> <p>看看 electron 的版本号</p> <blockquote><p>npx electron -v</p></blockquote> <ol start="3"><li>根目录下创建 main.js 文件(主进程)
+electron 主进程</li></ol> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow } = require('electron');
+let mainWindow = null;
+
+app.on('ready', () =&gt; {
+    mainWindow = new BrowserWindow({    // 创建和控制浏览器窗口
+        width: 800,                     // 窗口宽度
+        height: 600,                    // 窗口高度
+        webPreferences: {               // 网页功能设置
+            nodeIntegration: true,      // 是否在node工作器中启用工作集成默认false
+            enableRemoteModule: true,   // 是否启用remote模块默认false
+        }
+    });
+    mainWindow.loadFile('index.html');  // 加载页面
+    mainWindow.on('close', () =&gt; {      // 监听窗口关闭
+        mainWindow = null
+    })
+
+})
+</code></pre></div><ol start="4"><li>根目录下创建 index.html （需要加载的页面）</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;
+        点击弹窗
+    &lt;/button&gt;
+    &lt;script src=&quot;./render/index2.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</code></pre></div><ol start="3"><li>修改 paceage.json 文件中的 main 的值，<code>main</code>表示需要启动的脚本，
+将 scripts 的 test 修改为自己需要的名字或者只修改 test 的值</li></ol> <blockquote><p>修改为如下</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;name&quot;: &quot;test&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;electron .&quot;,
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+  }
+}
+</code></pre></div><ol start="4"><li>仅接着
+<blockquote><p>npm run start
+好的我们的第一个 electron 运行起来了</p></blockquote></li></ol> <h2 id="electron-的运行流程"><a href="#electron-的运行流程" class="header-anchor">#</a> electron 的运行流程</h2> <ol><li>读取 package.json 文件中的入口文件，这里就是我们的 main.js</li> <li>main.js 中我们引入<code>electron</code> 创建了渲染进程</li> <li>index.html 就是应用页面的布局和样式</li> <li>使用 IPC 在主进程执行任务并获取信息</li></ol> <p>可能上面的前三点都能明白，但是第四点不知道是什么，没事我们现在只要知道他的运行流程即可内部实现先不做深究。</p> <p>现在我们只需要知道<code>main.js</code>是主进程，<code>index.html</code>是渲染进程即可。</p> <h2 id="试试-node-js-的读取"><a href="#试试-node-js-的读取" class="header-anchor">#</a> 试试 node.js 的读取</h2> <p>我们先将目录结构规划一下</p> <div class="language- extra-class"><pre class="language-text"><code>─package-lock.json
+├─package.json
+├─src
+|  ├─main.js
+|  ├─render
+|  |   ├─index.html
+|  |   ├─text.txt
+|  |   ├─yellow.html
+|  |   ├─js
+|  |   | ├─index.js
+</code></pre></div><p>简单的划分后我们来看看是如何读取文件</p> <ol><li>我们在 render 目录下创建一个 test.txt 文件，里面写上<code>被读取到啦</code>。</li> <li>接着在 render 中创建一个 js 文件夹在 js 文件夹内创建 index.js 文件。</li> <li>在 index.html 中添加一个按钮，添加一个 div 标签(用于显示内容)，并且引入<code>index.js</code>。</li> <li>接着在<code>index.js</code>中获取按钮元素，读取 test.txt 文件内容</li></ol> <p>代码如下：</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;点击获取文件信息&lt;/button&gt;
+    &lt;div id=&quot;filesData&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;./js/index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// read
+const fs = require('fs');
+const path = require('path')
+
+const btnRead = document.querySelector('#btnRead');
+const filesDaata = document.querySelector('#filesData');
+const btnWrite = document.querySelector('#btnWrite');
+
+
+window.onload = ()=&gt;{
+    btnRead.onclick = () =&gt; {
+        fs.readFile(path.join(__dirname, 'text.txt'),(err,data)=&gt;{
+            console.log(data);
+            filesDaata.innerHTML = data
+        })
+    }
+    btnWrite.onclick = () =&gt; {
+        fs.writeFile(path.join(__dirname,'text.txt'),'添加1111', 'utf8',err=&gt;{
+            console.log(err)
+        })
+    }
+}
+
+</code></pre></div><p><code>main.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow } = require(&quot;electron&quot;);
+let mainWindow = null;
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+</code></pre></div><p>上面就是利用了 node.js 的读写取能力。</p> <h2 id="remote-模块的使用"><a href="#remote-模块的使用" class="header-anchor">#</a> remote 模块的使用</h2> <p>说<code>Remote</code>之前我们要明确一点，当我们知道了 Electron 是分<code>主进程</code>、<code>渲染进程</code>后，还需要知道 Electron 的 API 方法和模块也是分<code>主进程</code>、<code>渲染进程</code>。</p> <p>回到我们<code>Remote</code>的使用</p> <ul><li>Remote 是渲染进程（web 页面）和主进程通信（IPC）提供一种简单的方法。</li></ul> <ol><li>在 index.html 中写上一个按钮，通过点击事件创建一个新的窗口</li> <li>创建一个<code>yellow.html</code>用作新建窗口的渲染进程
+<blockquote><p>代码如下</p></blockquote></li></ol> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;
+        打开新窗口
+    &lt;/button&gt;
+    &lt;script src=&quot;./js/index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>yellow.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    我是新建的窗口
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 创建新窗口
+// remote
+const BrowserWindow = require('electron').remote.BrowserWindow;
+const btn = document.querySelector('#btn');
+window.onload = ()=&gt;{
+
+    btn.onclick = ()=&gt;{
+        newWindow = new BrowserWindow({
+            width: 300,
+            height:300,
+        })
+        newWindow.loadFile(require(&quot;path&quot;).join(__dirname, 'yellow.html'));
+        newWindow.on('close',()=&gt;{
+            newWindow = null;
+        })
+    }
+}
+</code></pre></div><p><code>main.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow } = require(&quot;electron&quot;);
+let mainWindow = null;
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+</code></pre></div><p>好滴，新建窗口完成啦，别急，我们看看<code>主进程</code>中的一段代码在<code>webPreferences</code> 里写了一句<code>enableRemoteModule: true</code> 。</p> <blockquote><p>这是<code>Electron</code>版本更新后修改的，默认不启用 remote 模块需要手动打开,别忘记了</p></blockquote> <h2 id="创建菜单以及基本使用"><a href="#创建菜单以及基本使用" class="header-anchor">#</a> 创建菜单以及基本使用</h2> <ol><li>新建 main 文件夹，在文件夹新建 menu.js</li> <li>在主线程中银日 menu.jsm</li></ol> <blockquote><p>注意 Menu 属于主线程下的模块，所以只能在主线程下使用。</p></blockquote> <p>代码如下：</p> <p><code>menu.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const {Menu} = require('electron');
+
+const  temlpate = [
+    {
+        label: '第一项',
+        submenu:[
+            {label: '1.1'},
+            {label: '1.2'}
+        ]
+    },
+    {
+        label: '第二项',
+        submenu:[
+            {label:'2.1'},
+            {label:'2.2'}
+        ]
+    }
+]
+
+const menu = Menu.buildFromTemplate(temlpate);
+Menu.setApplicationMenu(menu);
+</code></pre></div><p><code>main.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow } = require(&quot;electron&quot;);
+let mainWindow = null;
+require('./main/menu')
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      // enableRemoteModule: true,
+    },
+  });
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+
+</code></pre></div><p>既然是菜单那么当然是可以点击的，看看菜单中如何点击</p> <p><code>menu.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const { Menu, BrowserWindow } = require(&quot;electron&quot;);
+
+const temlpate = [
+  {
+    label: &quot;第一项&quot;,
+    submenu: [
+      {
+        label: &quot;1.1&quot;,
+        click: () =&gt; {
+          let win = new BrowserWindow({
+            width: 300,
+            height: 300,
+          });
+          win.loadFile(require('path').join(__dirname,'../render/yellow.html'));
+          win.on('close',()=&gt;{
+              win = null;
+          })
+        },
+      },
+      { label: &quot;1.2&quot; },
+    ],
+  },
+  {
+    label: &quot;第二项&quot;,
+    submenu: [{ label: &quot;2.1&quot; }, { label: &quot;2.2&quot; }],
+  },
+];
+
+const menu = Menu.buildFromTemplate(temlpate);
+Menu.setApplicationMenu(menu);
+</code></pre></div><p>我们还能通过快捷键实现</p> <div class="language- extra-class"><pre class="language-text"><code>const { Menu, BrowserWindow } = require(&quot;electron&quot;);
+
+const temlpate = [
+  {
+    label: &quot;第一项&quot;,
+    submenu: [
+      {
+        label: &quot;1.1&quot;,
+        accelerator:`crtl+n`,
+        click: () =&gt; {
+          let win = new BrowserWindow({
+            width: 300,
+            height: 300,
+          });
+          win.loadFile(require('path').join(__dirname,'../render/yellow.html'));
+          win.on('close',()=&gt;{
+              win = null;
+          })
+        },
+      },
+      { label: &quot;1.2&quot; },
+    ],
+  },
+  {
+    label: &quot;第二项&quot;,
+    submenu: [{ label: &quot;2.1&quot; }, { label: &quot;2.2&quot; }],
+  },
+];
+
+const menu = Menu.buildFromTemplate(temlpate);
+Menu.setApplicationMenu(menu);
+</code></pre></div><h2 id="右键菜单"><a href="#右键菜单" class="header-anchor">#</a> 右键菜单</h2> <p>右键是在渲染进程进行点击的，因此写在渲染进程中，且要用到<code>remote</code>模块</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;
+        打开新窗口
+    &lt;/button&gt;
+    &lt;script src=&quot;./js/index3.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index3.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 复制粘贴
+const { remote } = require('electron');
+
+const rightTemplate = [
+    {label:'粘贴'},
+    {label:'复制'},
+]
+const menu = remote.Menu.buildFromTemplate(rightTemplate);
+
+window.addEventListener('contextmenu',(e)=&gt;{
+    // 阻止当前窗口默认事件
+    e.preventDefault();
+    //把菜单模板添加到右键菜单
+    menu.popup({window:remote.getCurrentWindow()})
+})
+</code></pre></div><h2 id="通过链接打开浏览器"><a href="#通过链接打开浏览器" class="header-anchor">#</a> 通过链接打开浏览器</h2> <p>在渲染进程中默认加入一个 a 标签，进行跳转默认是直接在窗口中打开，而不是在浏览器中打开的。
+代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;https://www.baidu.com&quot;&gt;123&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p>可以看到这个跳转是在页面内的跳转，那么我们来看看如何通过打开浏览器。</p> <h5 id="使用-shell-在浏览器打开"><a href="#使用-shell-在浏览器打开" class="header-anchor">#</a> 使用 shell 在浏览器打开</h5> <ol><li>创建 index4.js</li></ol> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- shell通过链接打开浏览器 --&gt;
+    &lt;a id=&quot;aHref&quot; href=&quot;https://www.baidu.com&quot;&gt;123&lt;/a&gt;
+
+    &lt;script src=&quot;./js/index4.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index4.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 通过链接打开浏览器
+const { shell } = require('electron');
+
+const aHref = document.getElementById('aHref');
+
+aHref.onclick = (e)=&gt;{
+    // 阻止默认事件 因为默认是在应用中打开;
+    e.preventDefault();
+    // 获取链接
+    const href = aHref.getAttribute('href');
+    // 浏览器中打开
+    shell.openExternal(href)
+}
+</code></pre></div><h2 id="嵌入网页和打开子窗口"><a href="#嵌入网页和打开子窗口" class="header-anchor">#</a> 嵌入网页和打开子窗口</h2> <p>既然是嵌入网页，那当然是主进程中进行嵌入</p> <h5 id="browserview-键入网页到应用"><a href="#browserview-键入网页到应用" class="header-anchor">#</a> BrowserView 键入网页到应用</h5> <ol><li>打开主进程<code>main.js</code></li></ol> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow, BrowserView } = require(&quot;electron&quot;);
+let mainWindow = null;
+require('./main/menu')
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+
+  const viewWindow = new BrowserView(); // 定义实例
+  mainWindow.setBrowserView(viewWindow); // 主窗口设置viewWindw可用
+  viewWindow.setBounds({x:0,y:150,width: 600,height:600});
+  viewWindow.webContents.loadURL('https://www.baidu.com')
+
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+</code></pre></div><p>上面通过 BowserView 嵌入网页，
+下面来看看 window.open 打开子窗口</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 打开子窗口--&gt;
+    &lt;button id=&quot;btn&quot;&gt;打开子窗口 &lt;/button&gt;
+
+    &lt;script src=&quot;./js/index5.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index5.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 创建子窗口
+const btn = document.getElementById('btn');
+btn.onclick = ()=&gt;{
+    window.open('child.html')
+}
+</code></pre></div><h2 id="window-open-子窗口和父窗口之间的通信"><a href="#window-open-子窗口和父窗口之间的通信" class="header-anchor">#</a> window.open 子窗口和父窗口之间的通信</h2> <p><code>window.opener.postMessage(message,targetOrigin)</code>,是将消息发送给指定来源的父窗口，如果未指定来源则发送给<code>*</code>，即所有窗口。</p> <ol><li>创建了<code>child.html</code> <code>index6.js</code></li></ol> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 子窗口父窗口通信 --&gt;
+    &lt;button id=&quot;btn&quot;&gt;打开子窗口 &lt;/button&gt;
+    &lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+
+    &lt;script src=&quot;./js/index5.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>child.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;我是子窗口&lt;/div&gt;
+    &lt;button id=&quot;btn&quot;&gt;传递数据&lt;/button&gt;
+    &lt;script src=&quot;./js/index6.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index5.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 创建子窗口
+const btn = document.getElementById('btn');
+btn.onclick = ()=&gt;{
+    window.open('child.html')
+}
+
+// 子窗口与父窗口通信
+const message = document.getElementById('message')
+window.addEventListener('message',msg =&gt; {
+    console.log(msg)
+    message.innerHTML = msg.data
+})
+</code></pre></div><p><code>index6.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 子窗口发来信息
+const btn = document.getElementById('btn');
+btn.onclick = ()=&gt;{
+    window.opener.postMessage('子窗口发来信息')
+}
+</code></pre></div><h2 id="选择文件对话框"><a href="#选择文件对话框" class="header-anchor">#</a> 选择文件对话框</h2> <p>我看看打开文件对话框的 API 是什么<code>dialog.showOpenDialog()</code>,
+这个方法可以接收两个参数，一个是基本的属性设置，一个是回调函数，如果异步可以使用<code>then</code>
+基本设置有</p> <ul><li>title：对话框名字</li> <li>defaultPath: 默认打开路径</li> <li>buttonLabel: 确认按钮的自定义标签、若为空则使用默认标签</li> <li>filters: 文件选择器，定义后可以对文件类型进行筛选</li> <li>properties: 打开文件的属性，如：能否多选，选择文件的类型等</li></ul> <p>下面来看看代码</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body
+    &lt;!-- 打开文件 --&gt;
+    &lt;button id=&quot;btn&quot;&gt;打开文件&lt;/button&gt;
+
+
+    &lt;script src=&quot;./js/index7.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index7.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 选择文件对话框
+const {dialog} = require('electron').remote;
+const btn = document.getElementById('btn')
+
+btn.onclick = () =&gt;{
+    dialog.showOpenDialog({
+        title:'请选择你需要的文件',   // 对话框标题
+        defaultPath: '默认路径',     // 默认打开路径
+        filters:[                   // 文件选择过滤
+            {
+                name:'jpg',
+                extensions:['jpg']
+            }
+        ],
+        buttonLabel:'是否确认',
+        properties: ['openFile', 'multiSelections']   // 对话框使用的功能，允许选择文件、允许多选
+    }).then(res =&gt; {
+        console.log(res)
+    }).catch(err=&gt;{
+        console.log(err)
+    })
+}
+</code></pre></div><h2 id="保存对话框的操作"><a href="#保存对话框的操作" class="header-anchor">#</a> 保存对话框的操作</h2> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 保存对话框 --&gt;
+    &lt;button id=&quot;btn&quot;&gt;保存对话框&lt;/button&gt;
+    &lt;script src=&quot;./js/index8.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index8.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 选择文件
+const btn = document.getElementById('btn');
+const fs = require('fs');
+const {dialog} = require('electron').remote;
+btn.onclick = ()=&gt;{
+    dialog.showSaveDialog({
+        title: '选择文件'
+    }).then(res =&gt; {
+        console.log(res);
+        fs.writeFileSync(res.filePath, '你好啊');
+    }).catch(err =&gt;{
+        console.log(err)
+    })
+}
+</code></pre></div><p>当打开窗口输入文件名后会在对应的文件夹下创建相对于的文件，我们通过 node.js 的 fs 对相应的文件进行操作，写入了<code>你好啊</code></p> <blockquote><p>注意 保存文件是 dialog.showSaveDialog</p></blockquote> <h2 id="消息对话框-制作一个确认对话框"><a href="#消息对话框-制作一个确认对话框" class="header-anchor">#</a> 消息对话框（制作一个确认对话框）</h2> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 消息对话框 --&gt;
+    &lt;button id=&quot;btn&quot;&gt;打开消息对话框&lt;/button&gt;
+    &lt;script src=&quot;./js/index9.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index9.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 消息对话框
+const btn = document.getElementById(&quot;btn&quot;);
+const { dialog } = require('electron').remote
+
+btn.onclick = () =&gt; {
+    dialog.showMessageBox({
+    type: &quot;warning&quot;,
+    title: &quot;警告&quot;,
+    message: &quot;这是一个警告对话框&quot;,
+    buttons: [&quot;知道了&quot;, &quot;无所谓&quot;],
+  }).then(res =&gt; {
+      console.log(res)
+  });
+};
+</code></pre></div><h2 id="断网提醒"><a href="#断网提醒" class="header-anchor">#</a> 断网提醒</h2> <p>通过<code>window.addEventListener</code>进行监听<code>online</code> <code>offline</code>判断网络是否正常</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 断网提醒 --&gt;
+    &lt;div&gt;断网提醒&lt;/div&gt;
+
+    &lt;script src=&quot;./js/index10.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index10.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 断网提醒
+window.addEventListener('online',()=&gt;{
+    alert('网络正常，放心使用')
+})
+
+window.addEventListener('offline',()=&gt;{
+    alert('网络异常，请检查网络是否连接')
+})
+</code></pre></div><blockquote><p>注意：运行 electon 后不会有反应，先进行断网，在对网络进行连接即可看到效果</p></blockquote> <h2 id="底部通知消息提醒"><a href="#底部通知消息提醒" class="header-anchor">#</a> 底部通知消息提醒</h2> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 底部通知消息提醒 --&gt;
+    &lt;button id=&quot;btn&quot;&gt;通知消息&lt;/button&gt;
+
+    &lt;script src=&quot;./js/index11.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index11.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 底部消息提醒
+const btn = document.getElementById('btn')
+
+const option = {
+    title: '新消息提醒',
+    body: '你有新的消息提醒'
+}
+btn.onclick = ()=&gt;{
+    new window.Notification(option.title,option)
+}
+</code></pre></div><h2 id="注册全局快捷键"><a href="#注册全局快捷键" class="header-anchor">#</a> 注册全局快捷键</h2> <p>全局快捷加的注册是使用<code>globalShortcut</code>,<code>globalShortcut</code>是主线程的模块，因此写在<code>main.js</code>中</p> <p><code>main.js</code> 完整代码</p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow, BrowserView, globalShortcut } = require(&quot;electron&quot;);
+let mainWindow = null;
+require('./main/menu')
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  globalShortcut.register('ctrl+y',()=&gt;{
+    mainWindow.loadURL('https://www.baidu.com')
+  })
+  globalShortcut.register('ctrl+z',()=&gt;{
+    mainWindow.loadFile(require('path').join(__dirname, './render/index.html'))
+  })
+  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+
+  // const viewWindow = new BrowserView(); // 定义实例
+  // mainWindow.setBrowserView(viewWindow); // 主窗口设置viewWindw可用
+  // viewWindow.setBounds({x:0,y:150,width: 600,height:600});
+  // viewWindow.webContents.loadURL('https://www.baidu.com')
+
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+</code></pre></div><p>通过<code>globalShortcut.isRegistered()</code>判断全局快捷键是否注册成，可以打开多个软件进行测试</p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow, BrowserView, globalShortcut } = require(&quot;electron&quot;);
+let mainWindow = null;
+require('./main/menu')
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  globalShortcut.register('ctrl+y',()=&gt;{
+    let isRegister = globalShortcut.isRegistered(`ctrl+y`)?'true':'false'
+    console.log(isRegister)
+    mainWindow.loadURL('https://www.baidu.com')
+  })
+  globalShortcut.register('ctrl+z',()=&gt;{
+    mainWindow.loadFile(require('path').join(__dirname, './render/index.html'))
+  })
+  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+
+  // const viewWindow = new BrowserView(); // 定义实例
+  // mainWindow.setBrowserView(viewWindow); // 主窗口设置viewWindw可用
+  // viewWindow.setBounds({x:0,y:150,width: 600,height:600});
+  // viewWindow.webContents.loadURL('https://www.baidu.com')
+
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+});
+</code></pre></div><h2 id="注销快捷键"><a href="#注销快捷键" class="header-anchor">#</a> 注销快捷键</h2> <p>因为是全局快捷键所以页面关闭记得注销快捷键</p> <p>下面是注册快捷键、 判断快捷键是否注册成功、注销快捷键</p> <p><code>main.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>const { app, BrowserWindow, BrowserView, globalShortcut } = require(&quot;electron&quot;);
+let mainWindow = null;
+require('./main/menu')
+
+app.on(&quot;ready&quot;, () =&gt; {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+  });
+  globalShortcut.register('ctrl+y',()=&gt;{
+    let isRegister = globalShortcut.isRegistered(`ctrl+y`)?'true':'false'
+    console.log(isRegister)
+    mainWindow.loadURL('https://www.baidu.com')
+  })
+  globalShortcut.register('ctrl+z',()=&gt;{
+    mainWindow.loadFile(require('path').join(__dirname, './render/index.html'))
+  })
+  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile(require('path').join(__dirname, './render/index.html'));
+
+  // const viewWindow = new BrowserView(); // 定义实例
+  // mainWindow.setBrowserView(viewWindow); // 主窗口设置viewWindw可用
+  // viewWindow.setBounds({x:0,y:150,width: 600,height:600});
+  // viewWindow.webContents.loadURL('https://www.baidu.com')
+
+  mainWindow.on(&quot;close&quot;, () =&gt; {
+    mainWindow = null;
+  });
+
+});
+
+// 注销快捷键
+
+app.on('will-quie',()=&gt;{
+  globalShortcut.unregister('ctrl+y');
+  globalShortcut.unregister('ctrl+z');
+  globalShortcut.unregisterAll()
+
+})
+</code></pre></div><h2 id="剪切板事件使用"><a href="#剪切板事件使用" class="header-anchor">#</a> 剪切板事件使用</h2> <p>通过 <code>clipboard</code>模块实现</p> <p><code>index.html</code></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 剪切板  复制--&gt;被复制的信息
+    &lt;div&gt;
+        复制信息: &lt;span id=&quot;message&quot;&gt;被复制的信息&lt;/span&gt;&lt;button id=&quot;btn&quot;&gt;点击复制&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;./js/index12.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p><code>index12.js</code></p> <div class="language- extra-class"><pre class="language-text"><code>// 剪切板
+const btn = document.getElementById('btn');
+const message = document.getElementById('message');
+const { clipboard } = require('electron');
+btn.onclick = ()=&gt;{
+    clipboard.writeText(message.innerHTML)
+    alert('复制成功')
+}
+</code></pre></div><h2 id="打包桌面应用"><a href="#打包桌面应用" class="header-anchor">#</a> 打包桌面应用</h2> <p>这里只进行 windows 的打包测试</p> <p><code>npm install electron-builder --save-dev</code>\</p> <p>安装完成以后在<code>package.json</code>文件中的 scrit 内添加一个属性</p> <blockquote><p>&quot;build&quot;: &quot;electron-builder --win --x64&quot;</p></blockquote> <p>执行 <code>npm run build</code> 即可进行打包</p> <p>代码可查看 https://github.com/barntet/electron</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/noteBooks/Arr.html" class="prev">
+        js 常见的对象与数组之间的转换你都知道吗？
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e32ca8cc.js" defer></script><script src="/assets/js/2.2f30755f.js" defer></script><script src="/assets/js/10.0b286e2c.js" defer></script>
+  </body>
+</html>

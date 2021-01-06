@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress buils docs"
+    "build": "vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.3",
